@@ -111,26 +111,32 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals(data, getFinalscb) {
-    const array = getFinalscb(data);
-    console.log('array length: ' + array.length);
-
-    const totalGoals = array.reduce(function(acc, item){
-        return acc + item["Home Team Goals"] + item["Away Team Goals"];
-    }, 0);
-
-    console.log('total goals ' + totalGoals);
-    console.log('logging the value of array.length: ' + array.length);
-
-    let returnValue = totalGoals / array.length;
-    
-    console.log('returnValue: ' + returnValue);
-    returnValue = returnValue.toFixed(2);
-    console.log('returnValue: ' + returnValue);
-
-    return returnValue;
+function getAverageGoals(data){
+    const averageGoals = data.reduce(function(acc, item){
+        return acc + item['Home Team Goals'] + item['Away Team Goals']
+    }, 0)
+    return (averageGoals / data.length).toFixed(2);
 }
-getAverageGoals(fifaData, getFinals);
+// function getAverageGoals(data, getFinalscb) {
+//     const array = getFinalscb(data);
+//     console.log('array length: ' + array.length);
+
+//     const totalGoals = array.reduce(function(acc, item){
+//         return acc + item["Home Team Goals"] + item["Away Team Goals"];
+//     }, 0);
+
+//     console.log('total goals ' + totalGoals);
+//     console.log('logging the value of array.length: ' + array.length);
+
+//     let returnValue = totalGoals / array.length;
+
+//     console.log('returnValue: ' + returnValue);
+//     returnValue = returnValue.toFixed(2);
+//     console.log('returnValue: ' + returnValue);
+
+//     return returnValue;
+// }
+// getAverageGoals(fifaData, getFinals);
 
 /// 🥅 STRETCH 🥅 ///
 
